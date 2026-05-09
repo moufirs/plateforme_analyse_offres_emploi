@@ -17,14 +17,7 @@ L’objectif est de mettre en place un pipeline de données moderne permettant :
 
 Le pipeline suit une architecture de type **Data Engineering moderne** :
 
-Scrapy → Kafka → Consumer → MinIO (Data Lake)
-                         ↓
-                     Airflow
-                Silver → Gold
-                         ↓
-                    MySQL (Data Warehouse)
-                         ↓
-                   Streamlit (Dashboard)
+Scrapy → Kafka → Consumer → MinIO (Data Lake) → Airflow [ Silver → Gold ] → MySQL (Data Warehouse) → Streamlit (Dashboard)
 
 ---
 
@@ -109,7 +102,7 @@ La gouvernance est assurée par :
 
 ### 1. Lancer Docker
 - bash
-docker-compose up -d
+    docker-compose up -d
 
 ### 2. Lancer consumer:
     docker exec -it airflow bash
